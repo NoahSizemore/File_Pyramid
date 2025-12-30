@@ -62,17 +62,15 @@ def main():
         temp = list(file[i].split())
         cleaned_file[temp[0]] = temp[1]
 
-    # sorting the dictionary numerically
-    sorted_cleaned_file = dict(sorted(cleaned_file.items(), key=lambda item: int(item[0])))
-
-
-    pyramid  = pyramid_numbers(200)
+    # find the max key in data
+    max_key = max(int(k) for k in cleaned_file.keys())
+    pyramid = pyramid_numbers(max_key)
 
 
     # determining the items that should be printed out
     for item in pyramid:
-        if sorted_cleaned_file.get(str(item)) is not None:
-            print(sorted_cleaned_file.get(str(item)), end=" ")
+        if cleaned_file.get(str(item)) is not None:
+            print(cleaned_file.get(str(item)), end=" ")
 
 
 
